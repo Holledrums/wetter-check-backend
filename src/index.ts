@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import dotenv from "dotenv";
 import { getWeather } from "./weather.service";
@@ -5,6 +6,7 @@ import { getWeather } from "./weather.service";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(cors());
 
 app.get("/weather", async (req, res) => {
   const city =
